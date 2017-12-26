@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Guess the number</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <link rel="icon" type="image/gif" href="https://www.shareicon.net/download/2015/12/28/694274_numbers_512x512.png">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://use.fontawesome.com/cb64d3f667.js"></script>
+  <script type="text/javascript" src="js/app.js"></script>
+  <script type="text/javascript" src="js/controllers/GameController.js"></script>
+  <script type="text/javascript" src="js/services/GameService.js"></script>
+</head>
+<body ng-controller="GameController">
+    <div class="game-wrapper">
+      <h1>Guess The Number Game</h1>
+      <i class="fa fa-spinner fa-spin" ng-if="!step1 && !step2 && !step3 && !err"></i>
+      <div ng-if="err">error</div>
+      <div ng-if="step1">
+        <p>Think of a number between {{range.min}} and {{range.max}}</p>
+        <button class="btn btnGreen" ng-click="initGame(range.min, range.max)">I thought of a number</button>
+      </div>
+      <div ng-if="step2">
+        <p>I guess your number is {{guessNum}}</p>
+        <div class="buttonsWrapper">
+          <button class="btn btnGreen" ng-click="updateRange(guessNum-1)">My number is lower <i class="fa fa-long-arrow-down" aria-hidden="true"></i></button>
+          <button class="btn btnGreen" ng-click="updateRange(guessNum+1)">My number is bigger <i class="fa fa-long-arrow-up" aria-hidden="true"></i></button>
+          <button class="btn btnYellow" ng-click="correctNum()">That's my number!</button>
+        </div>
+      </div>
+      <div ng-if="step3">
+        <p>I've guessed your number in {{guessCounter}} tries.</p>
+        <button class="btn btnGreen" ng-click="playAgain()">Play again</button>
+      </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+body{
+	text-align: center;
+	overflow: hidden;
+	margin: 0;
+	font-family: 'Lato', sans-serif;
+}
+.game-wrapper{
+	width: 1280px;
+	height: 850px;
+	margin: 0 auto;
+}
+h1{
+  color: #2d63c9;
+  font-weight: bold;
+}
+.buttonsWrapper{
+  width: 320px;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+.btn:first-child{
+  margin-right: 9px;
+  margin-bottom: 20px;
+}
+.btnGreen, .btnYellow{
+  height: 42px;
+  padding: 12px;
+  border: 1px solid;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.btnYellow{
+  background-color: yellow;
+}
+.btnGreen{
+  background-color: #53e458;
+}
+@media (max-width: 1280px){
+	body{
+		overflow-x: scroll;
+	}
+}
+@media (max-height: 850px){
+	body{
+		overflow-y: scroll;
+	}
+}
+.fa-spin{
+  font-size: 50px !important;
+}
